@@ -1,9 +1,9 @@
 class Game {
-  constructor(id, name, genre, year, isReleased) {
+  constructor(id, name, year, genre, isReleased) {
     this.id = id;
     this.name = name;
-    this.genre = genre;
     this.year = year;
+    this.genre = genre;
     this.isReleased = isReleased;
   }
 }

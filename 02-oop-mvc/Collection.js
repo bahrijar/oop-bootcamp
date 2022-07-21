@@ -24,7 +24,12 @@ class Collection {
 
   static showGames() {
     let games = this.getGames();
-    console.table(games);
+    games.forEach((game) => {
+      const { id, name, genre, year, isReleased } = game;
+      console.log(
+        `${isReleased ? '[X]' : '[ ]'} ${id} ${name} - ${year}, Genre ${genre}`
+      );
+    });
   }
 }
 
