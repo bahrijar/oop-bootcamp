@@ -31,6 +31,30 @@ class Collection {
       );
     });
   }
+
+  static addGame(name, year, genre, isReleased) {
+    let games = this.getGames();
+    let id = games[games.length - 1].id + 1;
+
+    switch (genre) {
+      case 'action':
+        games.push(new Action(id, name, year, isReleased));
+        break;
+      case 'rpg':
+        games.push(new RPG(id, name, year, isReleased));
+        break;
+      case 'sport':
+        games.push(new Sport(id, name, year, isReleased));
+        break;
+    }
+    console.log(games);
+    this.save(games);
+    console.log(`${name} has been added`);
+  }
+
+  static save(games) {
+    fs.writeFileSync('./data.json', JSON.stringify(games, null, 3));
+  }
 }
 
 module.exports = Collection;

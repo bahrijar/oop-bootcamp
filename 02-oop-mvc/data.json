@@ -2,22 +2,29 @@
   {
     "id": 1,
     "name": "God of War 5",
-    "genre": "action",
     "year": 2021,
+    "genre": "action",
     "isReleased": false
   },
   {
     "id": 2,
     "name": "Story of Season",
-    "genre": "rpg",
     "year": 2021,
+    "genre": "rpg",
     "isReleased": false
   },
   {
     "id": 3,
     "name": "Fifa 2022",
-    "genre": "sport",
     "year": 2022,
+    "genre": "sport",
+    "isReleased": true
+  },
+  {
+    "id": 4,
+    "name": "Midnight",
+    "year": 2021,
+    "genre": "sport",
     "isReleased": true
   }
 ]
