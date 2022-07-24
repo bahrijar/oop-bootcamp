@@ -27,10 +27,10 @@ switch (command) {
     TodoController.delete(params);
     break;
   case 'edit':
-    TodoController.edit();
+    TodoController.edit(params);
     break;
   case 'changeStatus':
-    TodoController.changeStatus();
+    TodoController.changeStatus(params);
     break;
   case undefined:
     TodoController.message(`Command can't be empty!`);

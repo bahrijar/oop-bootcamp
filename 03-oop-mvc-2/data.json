@@ -1,32 +1,27 @@
 [
-  {
-    "id": 1,
-    "task": "Belajar JS",
-    "status": true
-  },
-  {
-    "id": 2,
-    "task": "Belajar OOP",
-    "status": false
-  },
-  {
-    "id": 3,
-    "task": "React State Management",
-    "status": true
-  },
-  {
-    "id": 4,
-    "task": "Redux Saga",
-    "status": true
-  },
-  {
-    "id": 5,
-    "task": "Dart Basic",
-    "status": false
-  },
-  {
-    "id": 6,
-    "task": "testing",
-    "status": false
-  }
+   {
+      "id": 1,
+      "task": "Belajar JS",
+      "status": false
+   },
+   {
+      "id": 2,
+      "task": "Belajar OOP",
+      "status": false
+   },
+   {
+      "id": 3,
+      "task": "React State Management",
+      "status": true
+   },
+   {
+      "id": 4,
+      "task": "Redux Saga",
+      "status": true
+   },
+   {
+      "id": 5,
+      "task": "Dart Basic",
+      "status": false
+   }
 ]

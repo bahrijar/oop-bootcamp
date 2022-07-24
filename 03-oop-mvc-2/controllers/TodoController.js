@@ -6,17 +6,38 @@ class TodoController {
     TodoView.help();
   }
   static show() {
-    let todos = Todo.getTodos();
+    const todos = Todo.getTodos();
     TodoView.show(todos);
   }
   static add(params) {
-    const [task] = params;
-    let res = Todo.add(task);
+    const res = Todo.add(params);
     this.message(res);
     if (res.status === 200) {
       this.show();
     }
   }
+  static edit(params) {
+    const res = Todo.edit(params);
+    this.message(res);
+    if (res.status === 200) {
+      this.show();
+    }
+  }
+  static delete(params) {
+    const res = Todo.delete(params);
+    this.message(res);
+    if (res.status === 200) {
+      this.show();
+    }
+  }
+  static changeStatus(params) {
+    const res = Todo.changeStatus(params);
+    this.message(res);
+    if (res.status === 200) {
+      this.show();
+    }
+  }
+
   static message(res) {
     TodoView.message(res);
   }

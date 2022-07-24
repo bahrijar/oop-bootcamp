@@ -15,14 +15,16 @@ class Todo {
     });
     return todos;
   }
-  static add(task) {
-    if (task === null || task === undefined || task === '') {
+
+  static add(params) {
+    if (params.length === 0) {
       return {
         status: 500,
         message: 'Todo failed to add. please input the task name!',
       };
     }
 
+    const [task] = params;
     let todos = this.getTodos();
     let id = todos[todos.length - 1].id + 1;
 
@@ -31,7 +33,81 @@ class Todo {
 
     return {
       status: 200,
-      message: `OK, Todo ${task} has added`,
+      message: `OK, Todo ${task} has been added`,
+    };
+  }
+
+  static edit(params) {
+    if (params.length === 0 || params.length > 2) {
+      return {
+        status: 500,
+        message: 'Please input the right parameter id and task',
+      };
+    }
+
+    const [id, task] = params;
+
+    let todos = this.getTodos();
+    todos = todos.map((todo) => {
+      if (todo.id === +id) {
+        todo.task = task;
+      }
+      return todo;
+    });
+
+    this.save(todos);
+
+    return {
+      status: 200,
+      message: `OK, Todo ${task} has been updated`,
+    };
+  }
+
+  static delete(params) {
+    if (params.length === 0 || params.length > 1) {
+      return {
+        status: 500,
+        message: 'Please input the right parameter id',
+      };
+    }
+
+    const [id] = params;
+
+    let todos = this.getTodos();
+    todos = todos.filter((item) => item.id !== +id);
+
+    this.save(todos);
+
+    return {
+      status: 200,
+      message: `OK, Todo has been deleted`,
+    };
+  }
+
+  static changeStatus(params) {
+    if (params.length === 0 || params.length > 2) {
+      return {
+        status: 500,
+        message:
+          'Please input the right parameter id and status: true || false',
+      };
+    }
+
+    const [id, status] = params;
+
+    let todos = this.getTodos();
+    todos = todos.map((todo) => {
+      if (todo.id === +id) {
+        todo.status = status === 'true' ? true : false;
+      }
+      return todo;
+    });
+
+    this.save(todos);
+
+    return {
+      status: 200,
+      message: `OK, Todo ${id} status changed`,
     };
   }
 
