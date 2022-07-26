@@ -15,6 +15,14 @@ class WineView {
   static showById(wine) {
     console.log(wine);
   }
+
+  static message(res) {
+    if (res.hasOwnProperty('status')) {
+      console.log(res.message);
+    } else {
+      console.log(res);
+    }
+  }
 }
 
 module.exports = WineView;

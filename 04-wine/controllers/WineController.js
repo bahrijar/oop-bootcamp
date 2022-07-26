@@ -16,10 +16,18 @@ class WineController {
   }
   static create(params) {
     const [name, year, type, stock] = params;
-    Wine.create({ name, year, type, stock });
+    const res = Wine.create({ name, year, type, stock });
+    this.message(res);
+    if (res.status === 201) {
+      this.findAll();
+    }
   }
   static update(params) {}
   static delete(params) {}
+
+  static message(res) {
+    WineView.message(res);
+  }
 }
 
 module.exports = WineController;

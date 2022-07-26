@@ -36,10 +36,18 @@ class Wine {
     let wines = this.findAll();
     const id = wines[wines.length - 1].id + 1;
     const today = new Date(Date.now());
-    const createdAt = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
-    const { name, year, type } = payload;
 
-    wines.push(new Wine(id, name, year, type, createdAt));
+    const createdAt = `${today.getFullYear()}-${
+      today.getMonth() < 10 ? `0${today.getMonth()}` : today.getMonth()
+    }-${today.getDate()}`;
+    const { name, year, type, stock } = payload;
+
+    wines.push(new Wine(id, name, +year, type, +stock, createdAt));
+    this.save(wines);
+    return {
+      status: 201,
+      message: `${name} has been created`,
+    };
   }
   static update() {}
   static delete() {}
