@@ -17,7 +17,8 @@ switch (command) {
   case 'create':
     WineController.create(params);
     break;
-  case 'update':
+  case 'rename':
+    WineController.rename(params);
     break;
   case 'delete':
     break;

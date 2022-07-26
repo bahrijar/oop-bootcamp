@@ -18,11 +18,15 @@ class WineController {
     const [name, year, type, stock] = params;
     const res = Wine.create({ name, year, type, stock });
     this.message(res);
-    if (res.status === 201) {
+    if (res.status === 200) {
       this.findAll();
     }
   }
-  static update(params) {}
+  static rename(params) {
+    const [id, name] = params;
+    const res = Wine.rename({ id, name });
+    this.message(res);
+  }
   static delete(params) {}
 
   static message(res) {
