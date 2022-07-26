@@ -12,8 +12,10 @@ switch (command) {
     WineController.findAll();
     break;
   case 'findById':
+    WineController.findById(params);
     break;
   case 'create':
+    WineController.create(params);
     break;
   case 'update':
     break;

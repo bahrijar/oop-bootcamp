@@ -6,10 +6,18 @@ class WineController {
     WineView.help();
   }
   static findAll() {
-    Wine.findAll();
+    const wines = Wine.findAll();
+    WineView.show(wines);
   }
-  static findById() {}
-  static create(params) {}
+  static findById(params) {
+    const [id] = params;
+    const wine = Wine.findById(+id);
+    WineView.showById(wine);
+  }
+  static create(params) {
+    const [name, year, type, stock] = params;
+    Wine.create({ name, year, type, stock });
+  }
   static update(params) {}
   static delete(params) {}
 }
