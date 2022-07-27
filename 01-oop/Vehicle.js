@@ -24,7 +24,7 @@ class Vehicle {
 class Sedan extends Vehicle {
   constructor(id, name, type, cc, nitro) {
     // jika ada extends maka ada super untuk bisa memakai sifat parentnya
-    super(name, type, cc);
+    super(id, name, type, cc);
     this.nitro = nitro || false;
   }
 
